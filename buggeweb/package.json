@@ -24,6 +24,7 @@
     "react-dom": "^18",
     "resend": "^4.5.2",
     "sanity": "^3.73.0",
+    "sass": "^1.89.2",
     "styled-components": "^6.1.14"
   },
   "devDependencies": {

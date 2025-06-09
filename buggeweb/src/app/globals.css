@@ -1,0 +1,79 @@
+:root {
+  --black: black;
+  --black-50: #202020;
+  --black-100: #121212;
+  --black-200: #363636;
+  --white-100: #d8d8d8;
+  --white-200: #b5b5b5;
+  --pink: #f97288;
+  --purple: #ad9cff;
+  --yellow: #e7ff76;
+  --orange: #ffd571;
+  --green: #00ff94;
+  --red: #f97288;
+  --gradient-shadow: linear-gradient(
+    45deg,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000
+  );
+}
+
+@font-face {
+  font-family: "CustomFont";
+  src: url("/fonts/GeneralSans-Variable.ttf") format("truetype");
+}
+
+body {
+  font-family: "CustomFont", sans-serif;
+  background-color: var(--black);
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+}
+
+h1,
+h2 {
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.slide-in {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--red);
+  transform-origin: bottom;
+  z-index: 999;
+}
+
+.slide-out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--red);
+  transform-origin: top;
+  z-index: 999;
+}

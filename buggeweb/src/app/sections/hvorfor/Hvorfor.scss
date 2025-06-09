@@ -1,0 +1,64 @@
+.why {
+  padding: 0 150px;
+  max-width: 1700px;
+  margin: 0 auto;
+}
+
+.hvorfor {
+  background-color: var(--black-100);
+
+  max-width: 1700px;
+
+  margin: 0 auto;
+  margin-top: 100px;
+  min-height: 600px;
+  border-radius: 30px;
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -30px;
+
+  h1 {
+    font-size: 130px;
+    font-weight: 900;
+    text-align: center;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    color: white;
+
+    p {
+      font-size: 40px;
+      font-weight: 900;
+      color: var(--white-200);
+      text-align: start;
+      margin-top: 20px;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--white-100);
+  }
+}
+
+.hvorfor-p {
+  color: var(--white-200);
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 20px;
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+}

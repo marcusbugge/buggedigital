@@ -1,0 +1,91 @@
+.cv-page {
+  h1 {
+    font-size: 4.6875rem;
+    color: white;
+    margin: 0px 0px 50px 15vw;
+  }
+}
+
+.cv-container {
+  position: relative;
+  /* Allows absolutely positioned children to align relative to this container */
+  width: 100%;
+  min-height: 100vh;
+  /* Full width */
+  padding-bottom: 0px;
+}
+
+.cv-svg {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  transform-origin: center;
+  transform: rotate(90deg) scale(1.5);
+}
+
+.cv-cnt {
+  background-color: black;
+  margin: 0px 10vw;
+  border-radius: 50px;
+  padding: 100px 10vw;
+
+  .cv-p {
+    font-size: 1.5rem;
+    color: var(--white-200);
+    margin-bottom: 40px;
+  }
+}
+
+.utdanning {
+  margin-bottom: 70px;
+}
+
+//CV element
+
+.cv-elem {
+  background-color: rgb(12, 12, 12);
+
+  margin-bottom: 20px;
+  display: flex;
+  border-radius: 20px;
+
+  .elem-text {
+    padding: 3rem;
+  }
+
+  h2 {
+    color: white;
+  }
+
+  p {
+    color: var(--white-200);
+    font-size: 1.5rem;
+  }
+}
+
+.elem-stripe {
+  width: 50px;
+  height: auto;
+  border-radius: 20px 0 0 20px;
+  background-color: var(--red);
+}
+
+.serts {
+  display: flex;
+  gap: 20px;
+
+  h2 {
+    color: white;
+    background-color: rgb(12, 12, 12);
+    padding: 2.5vw;
+    border-radius: 20px;
+    flex-wrap: wrap;
+  }
+
+  div {
+  }
+}

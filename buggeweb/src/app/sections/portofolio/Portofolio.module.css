@@ -1,0 +1,243 @@
+/* General Styles */
+.portofolio-page {
+  background-color: black;
+  min-height: 100vh;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  z-index: -5;
+}
+
+.dot-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.dotLineText {
+  font-size: 1.25rem;
+  color: white;
+}
+
+.sec-header {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 20px 80px 20px;
+  margin-top: 80px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding: 60px 20px;
+    gap: 20px;
+  }
+}
+
+.secHeaderTitle {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: white;
+  line-height: 1.5;
+  width: 80%;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+  }
+}
+
+.dott {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Header Section */
+.porto-header {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.portoHeaderDescription {
+  color: var(--white-200);
+  width: 35%;
+  font-size: 1.25rem;
+  margin-top: 50px;
+}
+
+.porto-header-h1 {
+  color: white;
+  font-size: 3rem;
+  width: 60%;
+  max-width: 800px;
+}
+
+.caro-header-2 {
+  /* Ingen direkte stiler her, eller fjern blokken hvis den er helt unødvendig */
+}
+
+.caroHeader2Title {
+  color: white;
+  font-size: 3.75rem;
+  text-align: center;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 200px;
+}
+
+/* Navigation Arrows */
+.arrows {
+  display: flex;
+  justify-content: space-between;
+}
+
+.arrow {
+  margin-top: 100px;
+  display: flex;
+  gap: 20px;
+}
+
+.arrowImage {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.arrow-rotate {
+  transform: rotate(180deg);
+  opacity: 0.5;
+}
+
+/* Project Carousel */
+.projects-container {
+  padding-left: 150px;
+}
+
+.projects {
+  transition: transform 0.5s ease-in-out;
+}
+
+.caroselCnt {
+  height: 300vh;
+  position: relative;
+}
+
+.caro-cnt {
+  height: 100vh;
+  position: sticky;
+  display: flex;
+  align-items: center;
+  top: 0;
+}
+
+.prj {
+  display: flex;
+  gap: 10px;
+  padding-right: 150px;
+}
+
+/* Individual Project Card */
+.project-div {
+  min-width: 400px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+
+  padding: 50px;
+  color: white;
+  font-size: 1.25rem;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  position: relative;
+}
+
+.arrow-cnt {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.arrow-svg {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.project-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.project-data a {
+}
+
+.project-div:hover .arrow-svg {
+  transform: rotate(-45deg);
+  border: 2px solid var(--hover-color);
+  background-color: var(--hover-color);
+}
+
+.project-div {
+  position: relative;
+  overflow: hidden; /* Ensures the pseudo-element doesn't overflow */
+}
+.project-div:hover {
+  transform: translateY(-10px);
+}
+
+.project-div[data-color] {
+  --hover-color: attr(data-color);
+}
+
+.project-div:hover h2 {
+  color: black;
+}
+
+/* Text Styling */
+.projectDivTitle {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.projectDivParagraph {
+  font-size: 1rem;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.caro-cnt a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.parallax-card-carousel {
+  display: flex;
+}
+
+.projectDivInCarousel {
+  flex: 0 0 30%; /* Adjust as needed */
+  margin-right: 20px; /* Spacing between cards */
+}

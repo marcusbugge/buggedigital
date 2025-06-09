@@ -1,0 +1,52 @@
+.link-container {
+  &.white {
+    .link-text {
+      color: white;
+    }
+    .link-text-hover {
+      color: white;
+    }
+  }
+
+  &.gray {
+    .link-text {
+      color: var(--black-200);
+    }
+    .link-text-hover {
+      color: var(--black);
+    }
+  }
+
+  .animated-link {
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+
+    &:active,
+    &:focus {
+      color: inherit;
+      outline: none;
+    }
+  }
+
+  .link-content {
+    position: relative;
+    cursor: pointer;
+
+    overflow: hidden;
+
+    .link-text,
+    .link-text-hover {
+      display: block;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .link-text-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}

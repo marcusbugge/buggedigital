@@ -1,0 +1,124 @@
+.hvordan-cnt {
+  background-color: rgb(15, 15, 15);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  height: fit-content;
+}
+
+.hvordan-left {
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+}
+.stroke-left {
+  font-size: 18px;
+  background-color: var(--red);
+  width: fit-content;
+  padding: 4px 15px;
+
+  h1 {
+    width: 30vw;
+  }
+}
+
+.test-how {
+  height: 100%;
+}
+
+.text-left {
+  position: sticky;
+  top: 35vh;
+  height: fit-content;
+  margin: 40vh 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 100px;
+  font-size: 40px;
+  color: white;
+  font-weight: 800;
+
+  h1 {
+    font-size: 4rem;
+    width: 40vw;
+    margin-top: 10px;
+  }
+}
+
+.text-right {
+  padding-right: 13vw;
+  padding-top: 40vh;
+
+  .card {
+    margin-bottom: 30vh;
+
+    border-radius: 10px;
+
+    h1 {
+      font-size: 36px;
+      color: white;
+      background-color: var(--red);
+      padding-left: 10px;
+      margin-bottom: 20px;
+      transform: skew(-10deg);
+    }
+
+    p {
+      font-size: 20px;
+      color: var(--white-100);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: var(--white-200);
+    }
+
+    ul {
+      margin: 20px 20px;
+    }
+
+    li {
+      color: var(--white-100);
+      margin: 5px 10px;
+      font-size: 20px;
+    }
+
+    // Reduce height only for the last card
+    .card:last-child {
+      height: 20vh; // Set a smaller height for the last card
+    }
+  }
+}
+
+.resultatet {
+  position: sticky;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25vw 30vh 25vw;
+
+  background-color: rgb(15, 15, 15);
+
+  h2 {
+    font-size: 24px;
+    color: var(--red);
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 70px;
+    color: white;
+    text-align: center;
+  }
+
+  p {
+    width: 40vw;
+    font-size: 20px;
+    color: var(--white-100);
+    text-align: center;
+    margin-top: 50px;
+  }
+}
+.teamwork {
+  color: var(--red);
+}

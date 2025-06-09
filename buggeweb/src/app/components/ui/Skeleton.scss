@@ -1,0 +1,33 @@
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--black-300) 0%,
+    var(--black-200) 50%,
+    var(--black-300) 100%
+  );
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+
+  &.circular {
+    border-radius: 50%;
+  }
+
+  &.rounded {
+    border-radius: 16px;
+  }
+
+  &.text {
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+      width: 80%;
+    }
+  }
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}

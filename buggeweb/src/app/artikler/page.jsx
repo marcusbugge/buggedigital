@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./artikler.module.scss";
 import ArticleContainer from "./ArticleContainer";
+import KommerSnart from "../sections/kommerSnart/KommerSnart";
 
 export default function page() {
   return (
-    <div className={styles.artiklerPage}>
-      <h1 className={styles.artiklerTitle}>Utvalgte artikler</h1>
-      <ArticleContainer />
+    <div>
+      <KommerSnart />
     </div>
   );
 }

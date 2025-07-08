@@ -6,6 +6,16 @@
   transition: all 0.1s ease-in-out;
   background-color: var(--black-100);
 
+  @media (max-width: 1024px) {
+    margin: 60px 50px;
+    padding: 1.5rem 2rem;
+  }
+
+  @media (max-width: 768px) {
+    margin: 40px 20px;
+    padding: 1rem 1.5rem;
+  }
+
   .container {
     position: relative;
   }
@@ -36,6 +46,12 @@
     gap: 2rem;
     padding: 3rem;
     border-radius: 10px;
+
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
   }
 
   .info {
@@ -49,11 +65,23 @@
       margin-bottom: 1rem;
       color: white;
       transition: color 0.3s ease-in-out;
+
+      @media (max-width: 1024px) {
+        font-size: 3rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
     }
 
     p {
       color: white;
       font-size: 1.25rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.1rem;
+      }
     }
   }
 
@@ -69,6 +97,15 @@
     position: relative;
     overflow: hidden;
     border-radius: 8px;
+
+    @media (max-width: 1024px) {
+      width: 400px;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+      flex: 0 0 200px;
+    }
   }
 
   .image {
@@ -92,6 +129,15 @@
   display: flex;
   margin-left: 150px;
   gap: 1rem;
+
+  @media (max-width: 1024px) {
+    margin-left: 50px;
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 20px;
+    gap: 0.5rem;
+  }
 
   .arrow1 {
     transform: rotate(180deg);

@@ -1,0 +1,358 @@
+// Apple Cards Carousel Styles
+.carouselContainer {
+  position: relative;
+  width: 100%;
+}
+
+.scrollContainer {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  overscroll-behavior-x: auto;
+  scroll-behavior: smooth;
+  padding: 2.5rem 0;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    padding: 5rem 0;
+  }
+}
+
+.gradientOverlay {
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+  height: auto;
+  width: 5%;
+  overflow: hidden;
+  background: linear-gradient(to left, transparent);
+}
+
+.carouselContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding-left: 1rem;
+  margin: 0 auto;
+  max-width: 80rem;
+}
+
+.cardWrapper {
+  border-radius: 1.5rem;
+
+  &:last-child {
+    padding-right: 5%;
+
+    @media (min-width: 768px) {
+      padding-right: 33%;
+    }
+  }
+}
+
+.navigationContainer {
+  margin-right: 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.navButton {
+  position: relative;
+  z-index: 40;
+  display: flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #6b7280;
+  }
+}
+
+// Modal Overlay
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  height: 100vh;
+  overflow: auto;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(0px);
+}
+
+.modalContent {
+  position: relative;
+  z-index: 60;
+  margin: 2.5rem auto;
+  height: fit-content;
+  max-width: 80rem;
+  border-radius: 1.5rem;
+  background-color: white;
+  padding: 1rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+
+  @media (min-width: 768px) {
+    padding: 2.5rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #171717;
+  }
+}
+
+.closeButton {
+  position: sticky;
+  top: 1rem;
+  right: 0;
+  margin-left: auto;
+  display: flex;
+  height: 2rem;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: white;
+  }
+
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #f5f5f5;
+
+    @media (prefers-color-scheme: dark) {
+      color: #171717;
+    }
+  }
+}
+
+.modalCategory {
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
+}
+
+.modalTitle {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #404040;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
+}
+
+.modalBody {
+  padding: 2.5rem 0;
+}
+
+// Card Styles
+.cardButton {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  height: 20rem;
+  width: 14rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background-color: #f3f4f6;
+  border: none;
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    height: 40rem;
+    width: 24rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #171717;
+  }
+}
+
+.cardGradient {
+  pointer-events: none;
+  position: absolute;
+  inset-x: 0;
+  top: 0;
+  z-index: 30;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5),
+    transparent,
+    transparent
+  );
+}
+
+.cardContent {
+  position: relative;
+  z-index: 40;
+  padding: 2rem;
+}
+
+.cardCategory {
+  text-align: left;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.cardTitle {
+  margin-top: 0.5rem;
+  max-width: 18rem;
+  text-align: left;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-wrap: balance;
+  color: white;
+
+  @media (min-width: 768px) {
+    font-size: 1.875rem;
+  }
+}
+
+.cardImage {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  object-fit: cover;
+}
+
+// Blur Image
+.blurImage {
+  height: 100%;
+  width: 100%;
+  transition: all 0.3s;
+
+  &.loading {
+    filter: blur(0px);
+  }
+
+  &.loaded {
+    filter: blur(0);
+  }
+}
+
+// Demo Content
+.demoContainer {
+  width: 100%;
+  height: 100%;
+  padding: 5rem 0;
+}
+
+.demoTitle {
+  max-width: 80rem;
+  padding-left: 1rem;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #262626;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: #e5e5e5;
+  }
+}
+
+.dummyContent {
+  background-color: #f5f5f7;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: 768px) {
+    padding: 3.5rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #262626;
+  }
+}
+
+.dummyText {
+  color: #525252;
+  font-size: 1rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  max-width: 48rem;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: #a3a3a3;
+  }
+}
+
+.dummyTextBold {
+  font-weight: 700;
+  color: #404040;
+
+  @media (prefers-color-scheme: dark) {
+    color: #e5e5e5;
+  }
+}
+
+.dummyImage {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  object-fit: contain;
+
+  @media (min-width: 768px) {
+    width: 50%;
+    height: 50%;
+  }
+}

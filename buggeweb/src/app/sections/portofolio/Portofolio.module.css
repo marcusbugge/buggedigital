@@ -2,7 +2,7 @@
 .portofolio-page {
   background-color: black;
   min-height: 100vh;
-  max-width: 2000px;
+  max-width: 1700px;
   margin: 0 auto;
   padding-bottom: 50px;
   z-index: -5;
@@ -62,8 +62,21 @@
 
 /* Header Section */
 .porto-header {
-  max-width: 1400px;
+  max-width: 1700px;
   margin: 0 auto;
+  padding: 0 150px;
+
+  @media (max-width: 1200px) {
+    padding: 0 80px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 40px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 20px;
+  }
 }
 
 .portoHeaderDescription {
@@ -240,4 +253,26 @@
 .projectDivInCarousel {
   flex: 0 0 30%; /* Adjust as needed */
   margin-right: 20px; /* Spacing between cards */
+}
+
+/* For mindre skjermer */
+@media (max-width: 768px) {
+  .porto-header-h1 {
+    font-size: 2.5rem; /* Juster skriftstørrelsen etter behov */
+  }
+
+  .portoHeaderDescription {
+    font-size: 1rem; /* Juster skriftstørrelsen etter behov */
+  }
+}
+
+/* For enda mindre skjermer */
+@media (max-width: 480px) {
+  .porto-header-h1 {
+    font-size: 2rem; /* Juster skriftstørrelsen etter behov */
+  }
+
+  .portoHeaderDescription {
+    font-size: 0.875rem; /* Juster skriftstørrelsen etter behov */
+  }
 }

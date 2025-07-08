@@ -146,11 +146,11 @@ export default function Footer() {
               <motion.h3 variants={itemVariants}>Tjenester</motion.h3>
               <motion.div variants={itemVariants}>
                 <AnimatedLink href="/tjenester/web-design">
-                  Web Design
+                  Webutvikling
                 </AnimatedLink>
               </motion.div>
               <motion.div variants={itemVariants}>
-                <AnimatedLink href="/tjenester/branding">Branding</AnimatedLink>
+                <AnimatedLink href="/ai">AI-tjenester</AnimatedLink>
               </motion.div>
               <motion.div variants={itemVariants}>
                 <AnimatedLink href="/tjenester/ux-ui">UX/UI</AnimatedLink>
@@ -166,10 +166,10 @@ export default function Footer() {
             <motion.div className="footer-column" variants={containerVariants}>
               <motion.h3 variants={itemVariants}>Bransjer</motion.h3>
               <motion.div variants={itemVariants}>
-                <AnimatedLink href="/bransjer/helse">Helse</AnimatedLink>
+                <AnimatedLink href="/bransjer/helse">Interiør</AnimatedLink>
               </motion.div>
               <motion.div variants={itemVariants}>
-                <AnimatedLink href="/bransjer/fintech">Fintech</AnimatedLink>
+                <AnimatedLink href="/bransjer/esport">E-sport</AnimatedLink>
               </motion.div>
               <motion.div variants={itemVariants}>
                 <AnimatedLink href="/bransjer/teknologi">
@@ -177,7 +177,9 @@ export default function Footer() {
                 </AnimatedLink>
               </motion.div>
               <motion.div variants={itemVariants}>
-                <AnimatedLink href="/bransjer/eiendom">Eiendom</AnimatedLink>
+                <AnimatedLink href="/bransjer/underholdning">
+                  Underholdning
+                </AnimatedLink>
               </motion.div>
               <motion.div variants={itemVariants}>
                 <AnimatedLink href="/bransjer/e-handel">E-handel</AnimatedLink>

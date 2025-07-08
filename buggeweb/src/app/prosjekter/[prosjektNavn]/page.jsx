@@ -19,7 +19,12 @@ export default async function Page({ params }) {
   console.log("Next project:", nextProject);
 
   return (
-    <div>
+    <div
+      style={{
+        width: "100%",
+        overflowX: "hidden",
+      }}
+    >
       <ProjectLayout project={project} />
       <AboutProject project={project} />
       <Challenges project={project} />

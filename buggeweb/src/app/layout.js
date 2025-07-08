@@ -1,6 +1,6 @@
 import "./globals.css";
 import ClientProviders from "./components/ClientProviders";
-import SmoothScrolling from "./components/SmoothScrolling";
+import SmoothScrollWrapper from "./components/SmoothScrollWrapper";
 import ClientLayout from "./components/ClientLayout";
 import Contact from "./components/contact/Contact";
 import Navbar2 from "./sections/navbar/Navbar2";
@@ -11,12 +11,14 @@ export const metadata = {
   description: "Bugge Digital - Din digitale partner",
 };
 
+// SmoothScrolling håndteres nå av en egen klientkomponent
+
 export default function RootLayout({ children }) {
   return (
     <html lang="no" className="dark" style={{ colorScheme: "dark" }}>
       <body>
         <ClientProviders>
-          <SmoothScrolling>
+          <SmoothScrollWrapper>
             <ClientLayout>
               <Cursor />
               <Navbar2 />
@@ -24,7 +26,7 @@ export default function RootLayout({ children }) {
               <Contact />
               <Footer />
             </ClientLayout>
-          </SmoothScrolling>
+          </SmoothScrollWrapper>
         </ClientProviders>
       </body>
     </html>

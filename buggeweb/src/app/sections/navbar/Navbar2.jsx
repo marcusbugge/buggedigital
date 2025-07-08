@@ -83,9 +83,9 @@ export default function Navbar2() {
           Artikler
         </AnimatedLink>
 
-        <button className="ta-kontakt" white="true">
+        <Link href="/booking" className="ta-kontakt" white="true">
           <span>Book et møte</span>
-        </button>
+        </Link>
       </div>
     </div>
   );

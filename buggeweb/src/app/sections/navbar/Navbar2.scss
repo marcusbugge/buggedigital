@@ -66,6 +66,12 @@
   border-radius: 60px;
   text-decoration: none;
   font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--white-200);
+  }
 }
 
 .nav-hover {

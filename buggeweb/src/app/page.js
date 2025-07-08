@@ -14,18 +14,21 @@ import Navbar2 from "./sections/navbar/Navbar2";
 import LandingPageLayout from "./components/layout/LandingPageLayout";
 import Contact from "./components/contact/Contact";
 import Teknologier from "./sections/teknologier/Teknologier";
-import { getProjects } from "./lib/sanity";
+import { getProjectsPreview } from "./lib/sanity";
 import Carousel from "./sections/portofolio/Carousel";
 import Hero2 from "./sections/hero/Hero2";
-export default async function Home() {
-  const projects = await getProjects();
+import Feedback from "./prosjekter/Feedback";
 
-  console.log(projects);
+export const revalidate = 3600;
+
+export default async function Home() {
+  const projects = await getProjectsPreview();
 
   return (
     <main className="page">
       <Hero />
       <Portofolio projects={projects} />
+
       <Details />
     </main>
   );

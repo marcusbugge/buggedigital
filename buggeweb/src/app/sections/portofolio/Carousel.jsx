@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 import Project from "./Project";
 import AnimatedParagraph from "../../components/ui/animations/AnimatedParagraph";
+import styles from "./Portofolio.module.css";
 
 export default function Carousel({ projects }) {
   const targetRef = useRef(null);
@@ -16,21 +17,23 @@ export default function Carousel({ projects }) {
 
   return (
     <div>
-      <div className="sec-header">
+      <div className={styles["sec-header"]}>
         <div className="dot-container">
-          <div className="dot-line">
-            <div className="dott"></div>
-            <p>Min tilnærming</p>
+          <div className={styles["dot-line"]}>
+            <div className={styles["dott"]}></div>
+            <p className={styles["dotLineText"]}>Min tilnærming</p>
           </div>
         </div>
         <AnimatedParagraph>
-          <h1>Første steg for å løse et problem er å gjenkjenne det.</h1>
+          <h1 className={styles["secHeaderTitle"]}>
+            Første steg for å løse et problem er å gjenkjenne det.
+          </h1>
         </AnimatedParagraph>
       </div>
 
-      <div ref={targetRef} className="caroselCnt">
-        <div className="caro-cnt">
-          <motion.div className="prj" style={{ x }}>
+      <div ref={targetRef} className={styles["caroselCnt"]}>
+        <div className={styles["caro-cnt"]}>
+          <motion.div className={styles["prj"]} style={{ x }}>
             {projects.map((project, index) => (
               <Project
                 key={index}

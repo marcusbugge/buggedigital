@@ -10,12 +10,12 @@ export default function Challenges({ project }) {
 
       <div>
         <div className={styles["upper-challenge"]}>
-          <p className="gray">Utfordringer</p>
+          <p className={styles.testp}>Utfordringer</p>
           <div className={styles.text}>{project.challenges}</div>
         </div>
 
         <div>
-          <p className="gray">Løsning</p>
+          <p className={styles.testp}>Løsning</p>
           <div className={styles.text}>{project.solution}</div>
         </div>
       </div>

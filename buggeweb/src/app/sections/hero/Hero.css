@@ -4,11 +4,6 @@
   position: relative;
 
   svg {
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    top: 100px;
-    opacity: 0.3;
   }
 
   .hero-text {

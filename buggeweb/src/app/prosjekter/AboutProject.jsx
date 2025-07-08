@@ -35,8 +35,8 @@ export default function AboutProject({ project }) {
           <p className={styles.gray}>Industri</p>
           <p>{project.industry}</p>
 
-          <div className={styles["about-left-info"]}>
-            <div>
+          <div className={styles.about_left_info}>
+            <div className={styles.about_left_info_item}>
               <p className={styles.gray}>Utviklingstid</p>
               <div className={styles["time-wrapper"]} ref={ref}>
                 <motion.p
@@ -50,7 +50,7 @@ export default function AboutProject({ project }) {
                 <p className={styles.gray}>uker</p>
               </div>
             </div>
-            <div className="services">
+            <div className={styles.about_left_info_item}>
               <p className={styles.gray}>Services</p>
 
               <div className={styles["service-tags"]}>
@@ -90,7 +90,7 @@ export default function AboutProject({ project }) {
                     src={image}
                     alt={`${project.title} bilde ${index + 1}`}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
                     priority={index === 0}
                     style={{ objectFit: "cover" }}
                   />
@@ -112,7 +112,7 @@ export default function AboutProject({ project }) {
                     src={image}
                     alt={`${project.title} bilde ${index + 3}`}
                     fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 33vw, 33vw"
                     style={{ objectFit: "cover" }}
                   />
                 </div>

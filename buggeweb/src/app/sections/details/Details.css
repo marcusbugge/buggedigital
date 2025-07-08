@@ -27,13 +27,36 @@
   width: 70%;
   text-align: center;
   z-index: 5;
+
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+
+  @media (max-width: 480px) {
+    width: 95%;
+  }
 }
 
 .details-header {
   color: white;
   font-size: 70px;
-
   text-align: center;
+
+  @media (max-width: 1024px) {
+    font-size: 50px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 30px;
+  }
 }
 
 .header-details p {
@@ -51,6 +74,24 @@
   line-height: 1.5;
   margin-top: 50px;
   text-align: center;
+
+  @media (max-width: 1024px) {
+    width: 60%;
+    font-size: 18px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
+    font-size: 16px;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    font-size: 14px;
+    margin-top: 20px;
+  }
 }
 
 .tek-span {
@@ -66,6 +107,21 @@
   align-items: flex-start;
   justify-content: center;
   gap: 20px;
+
+  @media (max-width: 1024px) {
+    padding: 150px 5vw 150px 5vw;
+    gap: 15px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 100px 20px 100px 20px;
+    gap: 12px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 80px 15px 80px 15px;
+    gap: 10px;
+  }
 }
 
 .tech-item {
@@ -86,12 +142,48 @@
   color: white;
   display: flex;
   align-items: center;
+
+  @media (max-width: 1024px) {
+    padding: 15px 40px;
+    font-size: 18px;
+    border-radius: 80px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 60px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 25px;
+    font-size: 14px;
+    border-radius: 50px;
+  }
 }
 
 .tech-tag img {
   width: 25px;
   height: 25px;
   margin-right: 10px;
+
+  @media (max-width: 1024px) {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+  }
+
+  @media (max-width: 768px) {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
+
+  @media (max-width: 480px) {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+  }
 }
 
 .services-section {
@@ -110,12 +202,40 @@
   z-index: 2;
   pointer-events: none;
   color: var(--black);
+
+  @media (max-width: 1024px) {
+    padding: 0 5%;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+    min-height: 100vh;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 15px;
+    min-height: 100vh;
+  }
 }
 
 .services-header {
   margin-bottom: 6rem;
   pointer-events: all;
   color: white;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 4rem;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 2rem;
+  }
 }
 
 .dot-section {
@@ -140,6 +260,21 @@
   line-height: 1.2;
   max-width: 1000px;
   font-weight: 500;
+
+  @media (max-width: 1024px) {
+    font-size: clamp(2rem, 4vw, 3rem);
+    max-width: 800px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    max-width: 600px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    max-width: 100%;
+  }
 }
 
 .services-grid {
@@ -149,6 +284,18 @@
   max-width: 1800px;
 
   pointer-events: all;
+
+  @media (max-width: 1024px) {
+    max-width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 100%;
+  }
 }
 
 .service-item {
@@ -162,6 +309,21 @@
   border-bottom: 1px solid var(--black-100);
   overflow: hidden;
   color: white;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 60px 1fr 80px;
+    padding: 2rem 0;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 50px 1fr 60px;
+    padding: 1.5rem 0;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 40px 1fr 50px;
+    padding: 1rem 0;
+  }
 }
 
 .service-content {
@@ -175,6 +337,18 @@
   font-size: 1.25rem;
   opacity: 0.5;
   font-weight: 500;
+
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 }
 
 .service-name {
@@ -182,6 +356,21 @@
   font-weight: 500;
   margin: 0;
   margin-right: 200px;
+
+  @media (max-width: 1024px) {
+    font-size: 2rem;
+    margin-right: 100px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-right: 50px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.25rem;
+    margin-right: 20px;
+  }
 }
 
 .arrow-container {
@@ -191,6 +380,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1024px) {
+    width: 40px;
+    height: 40px;
+  }
+
+  @media (max-width: 768px) {
+    width: 35px;
+    height: 35px;
+  }
+
+  @media (max-width: 480px) {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .service-bg {

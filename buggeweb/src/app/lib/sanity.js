@@ -4,32 +4,24 @@ export const client = createClient({
   projectId: "er5um3hh", // Du må erstatte dette med ditt faktiske prosjekt-ID fra Sanity
   dataset: "production",
   apiVersion: "2024-03-21",
-  useCdn: false,
+  // Bruk Edge-cache i produksjon, men la det være av i dev for ferske data
+  useCdn: process.env.NODE_ENV === "production",
 });
 
 export async function getProjects() {
+  // Full prosjekt-payload benyttes kun på detaljsider; holdes her for bakover-kompat.
   const projects =
     await client.fetch(`*[_type == "project"] | order(order asc) {
     _id,
     title,
     color,
     description,
-     shortDescription,
+    shortDescription,
     where,
     "slug": slug.current,
     "mainImage": mainImage.asset->url,
-    "gallery": gallery[].asset->url,
     client,
     industry,
-    challenges,
-    solution,
-    developmentTime,
-    services,
-    projectUrl,
-    tags,
-    feedback,
-    feedbackFrom,
-    feedbackFromPosition,
     featured,
     order
   }`);
@@ -105,4 +97,17 @@ export async function getServices() {
     ...new Set(services.flatMap((p) => p.services || [])),
   ];
   return uniqueServices;
+}
+
+// Lettvekts liste for oversiktssider (kun felt som trengs i Carousel / teaser)
+export async function getProjectsPreview() {
+  const projects =
+    await client.fetch(`*[_type == "project" && featured == true] | order(order asc) {
+    title,
+    shortDescription,
+    color,
+    "slug": slug.current,
+    order
+  }`);
+  return projects;
 }

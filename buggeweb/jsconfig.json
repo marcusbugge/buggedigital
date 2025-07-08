@@ -10,7 +10,8 @@
       "@/*": ["./src/*"],
       "@/app/*": ["./src/app/*"],
       "@/components/*": ["./src/app/components/*"],
-      "@/sections/*": ["./src/app/sections/*"]
+      "@/sections/*": ["./src/app/sections/*"],
+      "@/hooks/*": ["./src/hooks/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,

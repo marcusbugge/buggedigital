@@ -27,12 +27,31 @@
 }
 
 @font-face {
-  font-family: "CustomFont";
-  src: url("/fonts/GeneralSans-Variable.ttf") format("truetype");
+  font-family: "NeueMontreal";
+  src: url("/fonts/NeueMontreal-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("/fonts/NeueMontreal-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NeueMontreal";
+  src: url("/fonts/NeueMontreal-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
-  font-family: "CustomFont", sans-serif;
+  font-family: "NeueMontreal", sans-serif;
   background-color: var(--black);
   overflow-x: hidden;
 }
@@ -47,13 +66,17 @@ body {
   background-color: var(--black);
 }
 
-h1,
+h1 {
+  font-weight: 600;
+}
+
 h2 {
   font-weight: 600;
 }
 
 p {
   line-height: 1.5;
+  font-weight: 400;
 }
 
 .slide-in {

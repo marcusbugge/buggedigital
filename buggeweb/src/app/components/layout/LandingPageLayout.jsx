@@ -9,6 +9,7 @@ import { ColorfulText } from "../ui/ColorfulText";
 import { StarsBackground } from "../ui/StarsBackground";
 import { ShootingStars } from "../ui/ShootingStars";
 import { HeroHighlight } from "../ui/HeroHighlight";
+import { BackgroundLines } from "../ui/BackgroundLines";
 
 export default function LandingPageLayout({ title, description }) {
   const { scrollYProgress } = useScroll({
@@ -23,29 +24,37 @@ export default function LandingPageLayout({ title, description }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <motion.div
-        className={styles.background}
+      <BackgroundLines
         style={{
           position: "absolute",
+          top: 0,
+          left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "black",
           zIndex: -1,
           borderRadius: "20px",
           overflow: "hidden",
         }}
+        svgOptions={{ duration: 8 }}
       >
-        <StarsBackground />
-        <ShootingStars />
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            borderRadius: "20px",
+          }}
+        />
+      </BackgroundLines>
+
+      <motion.div className={styles.header}>
+        <h1>{title}</h1>
       </motion.div>
 
-      <HeroHighlight>
-        <motion.div className={styles.header}>
-          <h1>{title}</h1>
-        </motion.div>
-
-        <motion.p className={styles.description}>{description}</motion.p>
-      </HeroHighlight>
+      <motion.p className={styles.description}>{description}</motion.p>
 
       <LandingPageArrow />
     </motion.div>

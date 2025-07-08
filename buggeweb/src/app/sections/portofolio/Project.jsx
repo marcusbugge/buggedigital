@@ -1,18 +1,19 @@
 import React from "react";
 import Link from "next/link";
+import styles from "./Portofolio.module.css";
+
 export default function Project({ name, desc = "", color = "white", url }) {
   return (
     <Link href={`/prosjekter/${url}`} passHref>
       <div
-        className="project-div"
+        className={styles["project-div"]}
         style={{
           backgroundColor: `${color}`,
-          borderRadius: 10,
           "--hover-color": color, // Injecting dynamic color into CSS variable
         }}
       >
-        <div className="arrow-cnt">
-          <div className="arrow-svg">
+        <div className={styles["arrow-cnt"]}>
+          <div className={styles["arrow-svg"]}>
             <svg
               width="30"
               height="30"
@@ -37,9 +38,9 @@ export default function Project({ name, desc = "", color = "white", url }) {
             </svg>
           </div>
         </div>
-        <div className="project-data">
-          <p>{name}</p>
-          <h2>{desc}</h2>
+        <div className={styles["project-data"]}>
+          <p className={styles["projectDivParagraph"]}>{name}</p>
+          <h2 className={styles["projectDivTitle"]}>{desc}</h2>
         </div>
       </div>
     </Link>

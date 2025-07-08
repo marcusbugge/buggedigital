@@ -10,6 +10,7 @@ import AnimatedHeader from "../../components/ui/animations/AnimatedHeader";
 import Hvorfor from "../hvorfor/Hvorfor";
 import Carousel from "./Carousel";
 import About from "../about/About";
+import Link from "next/link";
 export default function Portofolio({ projects }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const projectsRef = useRef(null);
@@ -32,6 +33,7 @@ export default function Portofolio({ projects }) {
               for mennesker.
             </p>
           </AnimatedParagraph>
+
           <div className={styles.arrow}>
             <Image
               className={`${styles["arrow-rotate"]} ${styles.arrowImage}`}

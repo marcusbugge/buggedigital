@@ -21,7 +21,7 @@ export default function Page() {
     <div className="booking">
       <LandingPageLayout
         title="La oss gjøre en forskjell 🚀"
-        description="Ta kontakt"
+        description="Ta kontakt med oss for en helt uforpliktende samtale om ditt prosjekt"
       />
       <div className="booking-content">
         <div className="left">

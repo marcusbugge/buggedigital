@@ -7,17 +7,16 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Arrow from "../../components/Arrow";
 
 const services = [
-  { number: "01", name: "Website Design", link: "/tjenester/website-design" },
-  { number: "02", name: "Branding", link: "/tjenester/branding" },
-  { number: "03", name: "UX/UI", link: "/tjenester/uxui" },
-  { number: "04", name: "Motion Design", link: "/tjenester/motion-design" },
-  { number: "05", name: "SEO", link: "/tjenester/seo" },
+  { number: "01", name: "Design", link: "/tjenester/website-design" },
   {
-    number: "06",
-    name: "Content Creation",
-    link: "/tjenester/content-creation",
+    number: "02",
+    name: "Webapplikasjon",
+    link: "/tjenester/webapplikasjon",
   },
-  { number: "07", name: "Landing Page", link: "/tjenester/landing-page" },
+  { number: "03", name: "UX/UI", link: "/tjenester/uxui" },
+  { number: "05", name: "SEO", link: "/tjenester/seo" },
+
+  { number: "07", name: "Hosting", link: "/tjenester/hosting" },
 ];
 
 export default function Details() {

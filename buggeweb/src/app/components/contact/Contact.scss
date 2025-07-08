@@ -8,6 +8,28 @@
   display: grid;
   grid-template-columns: 3fr 4fr;
   border-radius: 10px;
+
+  @media (max-width: 1024px) {
+    width: 90%;
+    padding: 60px;
+    margin: 100px auto 0;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  @media (max-width: 768px) {
+    width: 95%;
+    padding: 40px 30px;
+    margin: 80px auto 0;
+    gap: 30px;
+  }
+
+  @media (max-width: 480px) {
+    width: 98%;
+    padding: 30px 20px;
+    margin: 60px auto 0;
+    gap: 25px;
+  }
 }
 
 .contact-header {
@@ -20,17 +42,46 @@
 
 .left h1 {
   font-size: 3rem;
+
+  @media (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+  }
 }
 .contact-data {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 
+  @media (max-width: 1024px) {
+    gap: 15px;
+  }
+
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
+
   div {
     width: 48%;
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      gap: 8px;
+    }
   }
 }
 
@@ -38,6 +89,19 @@ label {
   color: var(--white-200);
   font-size: 18px;
   min-width: 200px;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+    min-width: auto;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 }
 
 input {
@@ -50,9 +114,36 @@ input {
   transition: border-color 0.3s ease;
   color: white;
 
+  @media (max-width: 1024px) {
+    font-size: 18px;
+    padding: 12px 0;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    padding: 10px 0;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 15px;
+    padding: 8px 0;
+  }
+
   &::placeholder {
     color: var(--black-200);
     font-size: 18px;
+
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
   }
 
   &:focus {
@@ -72,9 +163,36 @@ textarea {
   background: transparent;
   color: white;
 
+  @media (max-width: 1024px) {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+    padding: 10px 0;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+
   &::placeholder {
     color: var(--black-200);
     font-size: 18px;
+
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
   }
 
   &:focus {
@@ -92,6 +210,21 @@ textarea {
   position: relative;
   overflow: hidden;
   z-index: 1;
+
+  @media (max-width: 1024px) {
+    padding: 15px 30px;
+    border-radius: 30px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px 25px;
+    border-radius: 25px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 20px;
+    border-radius: 20px;
+  }
 
   &::before {
     content: "";
@@ -117,6 +250,18 @@ textarea {
     position: relative;
     z-index: 2;
     transition: color 0.3s ease;
+
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 13px;
+    }
   }
 
   &.active {
@@ -140,10 +285,40 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+
+  @media (max-width: 1024px) {
+    font-size: 18px;
+    margin-top: 15px;
+    gap: 8px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    margin-top: 12px;
+    gap: 6px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    margin-top: 10px;
+    gap: 5px;
+  }
 }
 
 .interestedIn {
   margin-top: 40px;
+
+  @media (max-width: 1024px) {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 25px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 20px;
+  }
 }
 
 .project-info {
@@ -151,8 +326,28 @@ textarea {
   display: flex;
   flex-direction: column;
 
+  @media (max-width: 1024px) {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 25px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 20px;
+  }
+
   label {
     margin-bottom: 15px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 480px) {
+      margin-bottom: 10px;
+    }
   }
 }
 
@@ -168,6 +363,27 @@ textarea {
   cursor: pointer;
   background-color: var(--white-100);
   transition: all 0.3s ease;
+
+  @media (max-width: 1024px) {
+    margin-top: 40px;
+    padding: 18px 120px;
+    font-size: 18px;
+    border-radius: 50px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 30px;
+    padding: 15px 100px;
+    font-size: 16px;
+    border-radius: 40px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 25px;
+    padding: 12px 80px;
+    font-size: 15px;
+    border-radius: 35px;
+  }
 
   &:disabled {
     opacity: 0.7;

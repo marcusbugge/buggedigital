@@ -23,7 +23,9 @@ export async function getProjects() {
     client,
     industry,
     featured,
-    order
+    order,
+    services,
+    tags
   }`);
   return projects;
 }

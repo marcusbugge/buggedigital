@@ -16,6 +16,7 @@ export default async function ProjectGrid() {
           color={project.color}
           url={project.slug}
           services={project.services}
+          tags={project.tags}
         />
       ))}
     </div>

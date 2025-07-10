@@ -56,9 +56,7 @@ export default function ProjectCard({
         <div className={styles.projectInfo}>
           <div className={styles.tags}>
             {tags?.slice(0, 3).map((tag, index) => (
-              <span key={index} className={styles.tag}>
-                {tag}
-              </span>
+              <span key={index}></span>
             ))}
           </div>
           <div className={styles.mainContent}>

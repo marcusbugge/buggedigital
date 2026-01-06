@@ -5,6 +5,7 @@ import "./Contact.scss";
 import AnimatedParagraph from "../ui/animations/AnimatedParagraph";
 import AnimatedHeader from "../ui/animations/AnimatedHeader";
 import { motion, useInView } from "framer-motion";
+import { toast } from "sonner";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -94,12 +95,20 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
     const newErrors = validateForm();
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length === 0) {
+    if (Object.keys(newErrors).length > 0) {
+      toast.error("Vennligst rett opp feilene i skjemaet", {
+        description: "Sjekk at alle påkrevde felt er fylt ut riktig.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const submitPromise = new Promise(async (resolve, reject) => {
       try {
         const response = await fetch("/api/contact", {
           method: "POST",
@@ -109,38 +118,47 @@ export default function Contact() {
           body: JSON.stringify(formData),
         });
 
+        const result = await response.json();
+
         if (response.ok) {
-          const result = await response.json();
-          console.log("Svar fra server:", result);
-          // Reset form etter vellykket sending
-          setFormData({
-            navn: "",
-            selskap: "",
-            email: "",
-            telefon: "",
-            interesser: [],
-            prosjekt: "",
-          });
-          alert("Takk for din henvendelse! Vi tar kontakt snart.");
+          resolve(result);
         } else {
-          // Håndter feil fra serveren
-          const errorResult = await response.json();
-          console.error("Feil fra server:", errorResult);
-          alert(
-            `Beklager, noe gikk galt: ${errorResult.message || "Ukjent feil"}`
-          );
+          reject(new Error(result.message || "Noe gikk galt"));
         }
       } catch (error) {
-        console.error("Feil ved sending:", error);
-        alert("Beklager, noe gikk galt. Prøv igjen senere.");
+        reject(error);
       }
-    }
+    });
 
-    setIsSubmitting(false);
+    toast.promise(submitPromise, {
+      loading: "Sender melding...",
+      success: () => {
+        setFormData({
+          navn: "",
+          selskap: "",
+          email: "",
+          telefon: "",
+          interesser: [],
+          prosjekt: "",
+        });
+        setIsSubmitting(false);
+        return "Takk! Meldingen er sendt 🚀";
+      },
+      error: (err) => {
+        setIsSubmitting(false);
+        console.error("Feil ved sending:", err);
+        return `Feil: ${err.message || "Kunne ikke sende meldingen"}`;
+      },
+    });
   };
 
   return (
     <div className="contact-cnt" id="contact-form">
+      <div className="form-glow-container">
+        <div className="glow-blob glow-1"></div>
+        <div className="glow-blob glow-2"></div>
+        <div className="glow-blob glow-3"></div>
+      </div>
       <form onSubmit={handleSubmit} className="contact">
         <div className="left">
           <AnimatedParagraph>
@@ -271,6 +289,14 @@ export default function Contact() {
           <button type="submit" className="send-button" disabled={isSubmitting}>
             {isSubmitting ? "Sender..." : "Send"}
           </button>
+        </div>
+
+        <div className="aurora-container">
+          <div className="aurora-blob blob-1"></div>
+          <div className="aurora-blob blob-2"></div>
+          <div className="aurora-blob blob-3"></div>
+          <div className="aurora-blob blob-4"></div>
+          <div className="aurora-grain"></div>
         </div>
       </form>
     </div>

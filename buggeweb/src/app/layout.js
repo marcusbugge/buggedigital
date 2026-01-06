@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="no" className="dark" style={{ colorScheme: "dark" }}>
+    <html lang="no" suppressHydrationWarning>
       <body>
         <ClientProviders>
           <SmoothScrollWrapper>

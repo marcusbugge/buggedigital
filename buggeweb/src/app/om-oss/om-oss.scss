@@ -5,6 +5,7 @@
   margin: 0 auto;
   padding: 120px 20px 80px 20px;
   margin-top: 80px;
+  background-color: transparent !important;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -271,22 +272,44 @@
   .left-value {
     font-size: 1.25rem;
     display: flex;
-
     gap: 20px;
+    color: white;
   }
 
   .right-value p {
     font-size: 1.5rem;
     width: 90%;
     line-height: 2;
+    color: white;
   }
 
   h1 {
     font-size: 3rem;
+    color: white;
   }
 }
 
 .smaller {
   padding-bottom: 0px;
   margin-bottom: -60px !important;
+  background-color: transparent !important;
+}
+
+.sec-header.smaller {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.sec-header.smaller,
+.sec-header.smaller .dot-container,
+.sec-header.smaller .dot-line,
+.sec-header.smaller h1,
+.sec-header.smaller p {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.om-oss-page .sec-header.smaller {
+  background-color: transparent !important;
+  background: transparent !important;
 }

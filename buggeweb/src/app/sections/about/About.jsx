@@ -9,6 +9,28 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import AnimatedParagraph from "../../components/ui/animations/AnimatedParagraph";
 import { ColorfulText } from "../../components/ui/ColorfulText";
 
+const GlowVisual = ({ color }) => (
+  <motion.div
+    style={{
+      width: "100%",
+      height: "100%",
+      background: `radial-gradient(circle at center bottom, ${color} 0%, rgba(255, 255, 255, 0) 70%)`,
+      opacity: 0.3,
+      filter: "blur(40px)",
+      transform: "translateY(30%)",
+    }}
+    animate={{
+      opacity: [0.2, 0.4, 0.2],
+      scale: [1, 1.2, 1],
+    }}
+    transition={{
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  />
+);
+
 export default function Page() {
   const logoVariants = {
     initial: {
@@ -73,6 +95,36 @@ export default function Page() {
         duration: 1.2,
         ease: "easeOut",
       },
+    },
+  };
+
+  const problemsContainerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.5,
+      },
+    },
+  };
+
+  const problemItemVariants = {
+    hidden: {},
+    visible: {},
+  };
+
+  const titleVariants = {
+    hidden: { color: "#363636" },
+    visible: {
+      color: "#b0b0b0",
+      transition: { duration: 1.5, ease: "easeInOut" },
+    },
+  };
+
+  const textVariants = {
+    hidden: { color: "#363636" },
+    visible: {
+      color: "#ffffff",
+      transition: { duration: 1.5, ease: "easeInOut" },
     },
   };
 
@@ -194,50 +246,64 @@ export default function Page() {
         </AnimatedParagraph>
       </div>
 
-      <div className="problems">
+      <motion.div
+        className="problems"
+        variants={problemsContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
         {[
           {
-            title: "Dyp Dykk",
+            title: "Dypdykk",
             number: "01",
             description: "Grundig utforskning av virksomheten og produktet.",
           },
           {
-            title: "Før-Produksjon",
+            title: "Førproduksjon",
             number: "02",
             description:
               "Identifisering av kjerneutfordringer, smertepunkter og kunstnerisk retning.",
           },
           {
-            title: "Design Forslag",
+            title: "Designforslag",
             number: "03",
             description: "Presentasjon av konseptløsninger.",
           },
           {
-            title: "Design Utvikling",
+            title: "Designutvikling",
             number: "04",
             description: "Videre utvikling av konseptet til ferdig produkt.",
           },
           {
-            title: "Levering og Testing",
+            title: "Levering og testing",
             number: "05",
             description:
-              "Design ferdigstilling, testing, levering og overlevering.",
+              "Ferdigstilling av design, testing, levering og overlevering.",
           },
         ].map((problem, index) => (
-          <div className="problem" key={index}>
+          <motion.div
+            className="problem"
+            key={index}
+            variants={problemItemVariants}
+          >
             <div className="problem-header">
               <div className="dot-container">
                 <div className="dot-line">
                   <div className="dott"></div>
-                  <p>{problem.title}</p>
+                  <motion.p variants={titleVariants}>{problem.title}</motion.p>
                 </div>
               </div>
-              <p className="number">{problem.number}</p>
+              <motion.p className="number" variants={textVariants}>
+                {problem.number}
+              </motion.p>
             </div>
-            <p className="description">{problem.description}</p>
-          </div>
+            <motion.p className="description" variants={textVariants}>
+              {problem.description}
+            </motion.p>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       <div ref={containerRef} style={{ position: "relative" }}>
         <div className="sec-header">
@@ -253,20 +319,40 @@ export default function Page() {
           <div className="expertise-container">
             <motion.div className="expertise-grid" style={{ x }}>
               <div className="expertise-item">
-                <h3>3+</h3>
-                <p>Års erfaring med å bygge smarte løsninger</p>
+                <div className="expertise-content">
+                  <h3>3+</h3>
+                  <p>Års erfaring med å bygge smarte løsninger</p>
+                </div>
+                <div className="expertise-visual">
+                  <GlowVisual color="#f97288" />
+                </div>
               </div>
               <div className="expertise-item">
-                <h3>10+</h3>
-                <p>Vellykkede prosjekter</p>
+                <div className="expertise-content">
+                  <h3>10+</h3>
+                  <p>Vellykkede prosjekter</p>
+                </div>
+                <div className="expertise-visual">
+                  <GlowVisual color="#ad9cff" />
+                </div>
               </div>
               <div className="expertise-item">
-                <h3>5+</h3>
-                <p>Bransjer med variert erfaring</p>
+                <div className="expertise-content">
+                  <h3>5+</h3>
+                  <p>Bransjer med variert erfaring</p>
+                </div>
+                <div className="expertise-visual">
+                  <GlowVisual color="#00ff94" />
+                </div>
               </div>
               <div className="expertise-item">
-                <h3>20+</h3>
-                <p>Fornøyde kunder</p>
+                <div className="expertise-content">
+                  <h3>20+</h3>
+                  <p>Fornøyde kunder</p>
+                </div>
+                <div className="expertise-visual">
+                  <GlowVisual color="#ffd571" />
+                </div>
               </div>
             </motion.div>
           </div>
@@ -363,3 +449,4 @@ export default function Page() {
     </div>
   );
 }
+

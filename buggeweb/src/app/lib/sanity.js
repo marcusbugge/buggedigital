@@ -1,90 +1,129 @@
 import { createClient } from "next-sanity";
+import { unstable_cache } from "next/cache";
+
+// Bruk miljøvariabler hvis tilgjengelig, ellers fallback til hardkodede verdier
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "er5um3hh";
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
+const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-03-21";
 
 export const client = createClient({
-  projectId: "er5um3hh", // Du må erstatte dette med ditt faktiske prosjekt-ID fra Sanity
-  dataset: "production",
-  apiVersion: "2024-03-21",
-  // Bruk Edge-cache i produksjon, men la det være av i dev for ferske data
+  projectId,
+  dataset,
+  apiVersion,
+  // Bruk CDN i produksjon for bedre ytelse, men med tag-based revalidation
   useCdn: process.env.NODE_ENV === "production",
+  // Legg til tag for revalidation
+  perspective: "published",
 });
 
 export async function getProjects() {
   // Full prosjekt-payload benyttes kun på detaljsider; holdes her for bakover-kompat.
-  const projects =
-    await client.fetch(`*[_type == "project"] | order(order asc) {
-    _id,
-    title,
-    color,
-    description,
-    shortDescription,
-    where,
-    "slug": slug.current,
-    "mainImage": mainImage.asset->url,
-    client,
-    industry,
-    featured,
-    order,
-    services,
-    tags
-  }`);
-  return projects;
+  // Bruk unstable_cache med tag for revalidation via webhook
+  const getCachedProjects = unstable_cache(
+    async () => {
+      return await client.fetch(`*[_type == "project"] | order(order asc) {
+        _id,
+        title,
+        color,
+        description,
+        shortDescription,
+        where,
+        "slug": slug.current,
+        "mainImage": mainImage.asset->url,
+        client,
+        industry,
+        featured,
+        order,
+        services,
+        tags
+      }`);
+    },
+    ["projects"],
+    {
+      tags: ["projects"],
+      revalidate: 3600, // Revalider hver time som fallback
+    }
+  );
+  
+  return await getCachedProjects();
 }
 
 export async function getProject(slug) {
-  const project = await client.fetch(
-    `*[_type == "project" && slug.current == $slug][0] {
-      _id,
-      title,
-      color,
-      description,
-       shortDescription,
-      where,
-      "slug": slug.current,
-      "mainImage": mainImage.asset->url,
-      "gallery": gallery[].asset->url,
-      client,
-      industry,
-      challenges,
-      solution,
-      developmentTime,
-      services,
-      projectUrl,
-      tags,
-      featured,
-      feedback,
-      feedbackFrom,
-      feedbackFromPosition,
-      order
-    }`,
-    { slug }
+  const getCachedProject = unstable_cache(
+    async () => {
+      return await client.fetch(
+        `*[_type == "project" && slug.current == $slug][0] {
+          _id,
+          title,
+          color,
+          description,
+          shortDescription,
+          where,
+          "slug": slug.current,
+          "mainImage": mainImage.asset->url,
+          "gallery": gallery[].asset->url,
+          client,
+          industry,
+          challenges,
+          solution,
+          developmentTime,
+          services,
+          projectUrl,
+          tags,
+          featured,
+          feedback,
+          feedbackFrom,
+          feedbackFromPosition,
+          order
+        }`,
+        { slug }
+      );
+    },
+    [`project-${slug}`],
+    {
+      tags: ["projects", `project-${slug}`],
+      revalidate: 3600,
+    }
   );
-  return project;
+  
+  return await getCachedProject();
 }
 
 export async function getNextProject(currentOrder) {
   // Først prøver vi å finne alle prosjekter og sortere dem etter order
-  const allProjects = await client.fetch(
-    `*[_type == "project"] | order(order asc) {
-      _id,
-      title,
-      color,
-      "slug": slug.current,
-      "mainImage": mainImage.asset->url,
-      shortDescription,
-      order
-    }`
+  const getCachedNextProject = unstable_cache(
+    async () => {
+      const allProjects = await client.fetch(
+        `*[_type == "project"] | order(order asc) {
+          _id,
+          title,
+          color,
+          "slug": slug.current,
+          "mainImage": mainImage.asset->url,
+          shortDescription,
+          order
+        }`
+      );
+
+      // Finn indeksen til gjeldende prosjekt
+      const currentIndex = allProjects.findIndex((p) => p.order === currentOrder);
+
+      // Hvis vi finner gjeldende prosjekt, returner neste i listen
+      if (currentIndex !== -1 && currentIndex < allProjects.length - 1) {
+        return allProjects[currentIndex + 1];
+      }
+
+      // Hvis vi er på siste prosjekt, returner det første
+      return allProjects[0];
+    },
+    [`next-project-${currentOrder}`],
+    {
+      tags: ["projects"],
+      revalidate: 3600,
+    }
   );
-
-  // Finn indeksen til gjeldende prosjekt
-  const currentIndex = allProjects.findIndex((p) => p.order === currentOrder);
-
-  // Hvis vi finner gjeldende prosjekt, returner neste i listen
-  if (currentIndex !== -1 && currentIndex < allProjects.length - 1) {
-    return allProjects[currentIndex + 1];
-  }
-
-  // Hvis vi er på siste prosjekt, returner det første
-  return allProjects[0];
+  
+  return await getCachedNextProject();
 }
 
 export async function getServices() {
@@ -103,13 +142,22 @@ export async function getServices() {
 
 // Lettvekts liste for oversiktssider (kun felt som trengs i Carousel / teaser)
 export async function getProjectsPreview() {
-  const projects =
-    await client.fetch(`*[_type == "project" && featured == true] | order(order asc) {
-    title,
-    shortDescription,
-    color,
-    "slug": slug.current,
-    order
-  }`);
-  return projects;
+  const getCachedPreview = unstable_cache(
+    async () => {
+      return await client.fetch(`*[_type == "project" && featured == true] | order(order asc) {
+        title,
+        shortDescription,
+        color,
+        "slug": slug.current,
+        order
+      }`);
+    },
+    ["projects-preview"],
+    {
+      tags: ["projects", "projects-preview"],
+      revalidate: 3600, // Fallback revalidation hver time
+    }
+  );
+  
+  return await getCachedPreview();
 }

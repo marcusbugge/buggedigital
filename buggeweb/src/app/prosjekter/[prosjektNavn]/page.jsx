@@ -6,6 +6,9 @@ import Feedback from "../Feedback";
 import NextProject from "../NextProject";
 import { getProject, getNextProject } from "../../lib/sanity";
 
+// Bruk tag-based revalidation i stedet for time-based
+export const dynamic = 'force-dynamic';
+
 export default async function Page({ params }) {
   const project = await getProject(params.prosjektNavn);
 

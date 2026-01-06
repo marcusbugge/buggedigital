@@ -19,7 +19,9 @@ import Carousel from "./sections/portofolio/Carousel";
 import Hero2 from "./sections/hero/Hero2";
 import Feedback from "./prosjekter/Feedback";
 
-export const revalidate = 3600;
+// Bruk tag-based revalidation i stedet for time-based
+// Dette gir umiddelbar oppdatering når Sanity sender webhook
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   const projects = await getProjectsPreview();

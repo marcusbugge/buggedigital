@@ -1,8 +1,8 @@
 .details-page {
   position: relative;
 
-  background: var(--white);
-  color: var(--black);
+  background: var(--black);
+  color: var(--white);
 }
 
 .header-details {
@@ -201,7 +201,7 @@
 
   z-index: 2;
   pointer-events: none;
-  color: var(--black);
+  color: var(--white);
 
   @media (max-width: 1024px) {
     padding: 0 5%;
@@ -223,7 +223,7 @@
 .services-header {
   margin-bottom: 6rem;
   pointer-events: all;
-  color: white;
+  color: var(--white);
 
   @media (max-width: 1024px) {
     margin-bottom: 4rem;
@@ -243,19 +243,19 @@
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 2rem;
-  color: var(--black);
+  color: var(--white);
   font-size: 1rem;
 }
 
 .dot {
   width: 6px;
   height: 6px;
-  background: var(--black);
+  background: var(--white);
   border-radius: 50%;
 }
 
 .services-header h2 {
-  color: var(--black);
+  color: var(--white);
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1.2;
   max-width: 1000px;
@@ -304,11 +304,10 @@
   grid-template-columns: 80px 1fr 100px;
   align-items: center;
   padding: 2.5rem 0;
-  color: var(--black);
+  color: var(--white);
   text-decoration: none;
   border-bottom: 1px solid var(--black-100);
   overflow: hidden;
-  color: white;
 
   @media (max-width: 1024px) {
     grid-template-columns: 60px 1fr 80px;

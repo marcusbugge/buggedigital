@@ -4,6 +4,7 @@ import React from "react";
 import ServicePageLayout from "../../components/layout/ServicePageLayout";
 import styles from "../../components/layout/ServicePageLayout.module.scss";
 import { motion } from "framer-motion";
+import GrainEffect from "../../components/ui/GrainEffect";
 
 export default function HostingPage() {
   return (
@@ -35,6 +36,7 @@ export default function HostingPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
+             <GrainEffect opacity={0.15} />
              <div style={{ position: "relative", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
                  {/* Server Ring */}
                  <motion.div
@@ -113,6 +115,7 @@ export default function HostingPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
+             <GrainEffect opacity={0.12} />
              <div style={{
                  width: "180px",
                  height: "220px",

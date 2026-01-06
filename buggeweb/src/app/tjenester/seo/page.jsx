@@ -4,6 +4,7 @@ import React from "react";
 import ServicePageLayout from "../../components/layout/ServicePageLayout";
 import styles from "../../components/layout/ServicePageLayout.module.scss";
 import { motion } from "framer-motion";
+import GrainEffect from "../../components/ui/GrainEffect";
 
 export default function SEOPage() {
   return (
@@ -35,6 +36,7 @@ export default function SEOPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
+             <GrainEffect opacity={0.15} />
              <div style={{
                  display: "flex",
                  alignItems: "flex-end",
@@ -84,6 +86,7 @@ export default function SEOPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
+            <GrainEffect opacity={0.12} />
             <div style={{ width: "80%", height: "80%", position: "relative" }}>
                 <svg width="100%" height="100%" viewBox="0 0 200 200" style={{ overflow: "visible" }}>
                     {/* Grid lines */}

@@ -4,6 +4,7 @@ import React from "react";
 import ServicePageLayout from "../../components/layout/ServicePageLayout";
 import styles from "../../components/layout/ServicePageLayout.module.scss";
 import { motion } from "framer-motion";
+import GrainEffect from "../../components/ui/GrainEffect";
 
 export default function WebapplikasjonPage() {
   return (
@@ -36,6 +37,7 @@ export default function WebapplikasjonPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
+            <GrainEffect opacity={0.15} />
             <div
               style={{
                 width: "85%",
@@ -104,6 +106,7 @@ export default function WebapplikasjonPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
+             <GrainEffect opacity={0.12} />
              <div style={{display: "flex", gap: "20px", alignItems: "flex-end", height: "200px"}}>
                  <motion.div 
                     style={{width: "40px", background: "rgba(0, 255, 148, 0.2)", borderTop: "2px solid #00FF94", borderRadius: "4px 4px 0 0"}} 

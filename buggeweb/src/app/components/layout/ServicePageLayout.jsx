@@ -5,6 +5,7 @@ import styles from "./ServicePageLayout.module.scss";
 import { motion } from "framer-motion";
 import { BackgroundLines } from "../ui/BackgroundLines";
 import LandingPageArrow from "./LandingPageArrow";
+import GrainEffect from "../ui/GrainEffect";
 
 export default function ServicePageLayout({
   title,
@@ -15,6 +16,7 @@ export default function ServicePageLayout({
 }) {
   return (
     <div className={styles.servicePage} style={{ "--gradient-color": color }}>
+      <GrainEffect opacity={0.04} />
       <div className={styles.hero}>
         <BackgroundLines
           style={{

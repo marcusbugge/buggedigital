@@ -10,7 +10,8 @@ import { getProject, getNextProject } from "../../lib/sanity";
 export const dynamic = 'force-dynamic';
 
 export default async function Page({ params }) {
-  const project = await getProject(params.prosjektNavn);
+  const { prosjektNavn } = await params;
+  const project = await getProject(prosjektNavn);
 
   if (!project) {
     return <div>Prosjektet ble ikke funnet</div>;

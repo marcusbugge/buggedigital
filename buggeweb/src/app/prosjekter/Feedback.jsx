@@ -10,7 +10,7 @@ export default function Feedback({ project }) {
 
       <div>
         <div className={styles["upper-challenge"]}>
-          <p className="gray">Tilbakemelding</p>
+          <p className={styles.testp}>Tilbakemelding</p>
           <div className={styles.text}>{project.feedback}</div>
         </div>
 
